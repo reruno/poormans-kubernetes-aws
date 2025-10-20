@@ -9,5 +9,5 @@ variable "bucket_name" {
   type        = string
   # A default is helpful, but you can also remove it
   # and provide the name at runtime.
-  default     = "poormans-kubernetes-example-32412"
+  default     = "poormans-kubernetes-terraform-state-32412"
 }

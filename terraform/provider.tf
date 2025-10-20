@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "poormans-kubernetes-example-32412"
+    bucket = "poormans-kubernetes-terraform-state-32412"
     region = "eu-central-1"
     key = "terraform/poormans-kubernetes/terraform.tfstate"
   }
