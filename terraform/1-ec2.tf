@@ -32,16 +32,18 @@ resource "aws_key_pair" "my_key" {
   public_key = file("~/.ssh/id_ed25519.pub") 
 }
 
-resource "aws_instance" "hello_world" {
-  ami           = "ami-0f439e819ba112bd7" # Debian amd64
-  instance_type = "t3a.nano"
+# "ami-0f439e819ba112bd7" # Debian amd64
+# "ami-0bdbe4d582d76c8ca" # Debian arm64
+resource "aws_instance" "public_instance_1" {
+  ami           = "ami-0f439e819ba112bd7"  
+  instance_type = "t3a.small"
   subnet_id     = aws_subnet.public_subnet_a.id
 
   key_name = aws_key_pair.my_key.key_name 
 
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   tags = {
-    Name = "hello-world-pm-k8s"
+    Name = "public-instance-1-pm-k8s"
   }
 
   depends_on = [ aws_security_group.allow_ssh ]
